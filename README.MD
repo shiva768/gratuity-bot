@@ -1,4 +1,4 @@
-VIRTUALCOIN チップボット
+VIRTUALCOIN 配布ボット
 ===============
 
 ## 構成  
