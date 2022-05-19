@@ -86,33 +86,33 @@ discord:
   bot:
     token: <token>
     server-id: <server-id>
-    notification-channel-id: 438667563782897674                         # 起動、終了メッセージ通知チャンネルID
+    notification-channel-id:                          # 起動、終了メッセージ通知チャンネルID
   channel-default-language:                                             # 言語にぶら下がったチャンネルIDはその言語がデフォルトとなる
     en:
       list:
-        - 425818190040268811
+        - 
   event:
     admin:
       user:
         ids:                                                            # 管理者コマンド(discord.event.admin.comannds)が利用できるユーザID
-          - 260023416894128130
-          - 418273971293650946
+          - 
+          - 
     text:
       channel-command-channel-ids:                                      # チャンネルコマンドが有効なチャンネルID
-        - 438667563782897674
-        - 433998591317508106
+        - 
+        - 
     emoji:
-      notification-channel-id: 438683201720811520                       # スタンプによる投げ銭の履歴を通知するチャンネルID
+      notification-channel-id:                        # スタンプによる投げ銭の履歴を通知するチャンネルID
       command:
         gratuity:
           emojis:                                                       # 絵文字IDと絵文字IDに対応する投げ銭値
-            - id: 438664051954810882
+            - id: 
               value: 1
-            - id: 438664082917425152
+            - id: 
               value: 10
-            - id: 438664102307692556
+            - id: 
               value: 100
-            - id: 438664118589849600
+            - id: 
               value: 1000
 
 spring:
