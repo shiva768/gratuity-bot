@@ -9,38 +9,38 @@ application:
 discord:
   bot:
     token:
-  #    notification-channel-id: 494332706629353472
-  #    notification-user-id: 418273971293650946
+  #    notification-channel-id: 
+  #    notification-user-id: 
   channel-default-language:
     en:
       list:
-      - 447013063057473546
+      - 
   event:
     admin:
       user:
         ids:
-        - 418273971293650946
-        - 274460385506230272
+        - 
+        - 
     text:
       #      channel-command-channel-ids:
-      #      - 494333091226058768
-      #      - 494333353689088021
-      #      - 494333708413960213
+      #      - 
+      #      - 
+      #      - 
       additional-enable-channel-commands:
       - mining
       - clear-cache
     emoji:
-      notification-channel-id: 494332706629353472
+      notification-channel-id: 
       command:
         gratuity:
           emojis:
-          - id: 494335417265684520
+          - id: 
             value: 1
-          - id: 494335615941476353
+          - id: 
             value: 10
-          - id: 494335624501919754
+          - id: 
             value: 100
-          - id: 494335633159094286
+          - id: 
             value: 1000
 
 spring:
