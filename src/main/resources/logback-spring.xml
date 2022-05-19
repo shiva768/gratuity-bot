@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <!--<include resource="org/springframework/boot/logging/logback/console-appender.xml"/>-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/virtualcoin-tool/gratuity-bot.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/virtualcoin-tool/gratuity-bot.%d{yyyy-MM-dd}.log.tar.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d %-5level %logger{3} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.hibernate" level="ERROR"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.apache.http" level="INFO"/>
+    <logger name="com.zaxxer.hikari.pool" level="INFO"/>
+    <logger name="sx.blah.discord.Discord4J" level="INFO"/>
+    <root level="DEBUG">
+        <springProfile name="!test">
+            <appender-ref ref="FILE"/>
+        </springProfile>
+        <springProfile name="dev">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+    </root>
+</configuration>

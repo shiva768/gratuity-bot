@@ -1,0 +1,16 @@
+version: '3'
+services:
+  vcoins-server:
+#    entrypoint: bash -c "VIRTUALCOINd -regtest -daemon && sleep 3s && VIRTUALCOIN-cli -regtest generate 501 && VIRTUALCOIN-cli -regtest move '' 446234539681906689 5000 && bash "
+    # VIRTUALCOINのregtestの動作が変なので、localの動作確認はbitcoinで行う stageで行う場合は書き換えないだめ
+    entrypoint: bash -c "bitcoind -regtest -daemon && sleep 3s && bitcoin-cli -regtest generate 501 && bitcoin-cli -regtest move '' 418273971293650946 5000 && bash "
+    tty: true
+    build: .
+    environment:
+      DISPLAY: :0
+    ports:
+      - "51200:51200"
+      - "31915:31915"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "/var/tmp:/var/tmp"

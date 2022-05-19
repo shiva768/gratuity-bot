@@ -1,0 +1,51 @@
+application:
+  http:
+    virtualcoin-url: http://127.0.0.1:51200
+    rpc-user: hoge
+    rpc-password: hogehoge123
+  debug:
+    # VIRTUALCOINのregtestの動作が変なので、localの動作確認はbitcoinで行う
+    mining: docker-compose exec -T vcoins-server bitcoin-cli -regtest generate
+discord:
+  bot:
+    token:
+  #    notification-channel-id: 494332706629353472
+  #    notification-user-id: 418273971293650946
+  channel-default-language:
+    en:
+      list:
+      - 447013063057473546
+  event:
+    admin:
+      user:
+        ids:
+        - 418273971293650946
+        - 274460385506230272
+    text:
+      #      channel-command-channel-ids:
+      #      - 494333091226058768
+      #      - 494333353689088021
+      #      - 494333708413960213
+      additional-enable-channel-commands:
+      - mining
+      - clear-cache
+    emoji:
+      notification-channel-id: 494332706629353472
+      command:
+        gratuity:
+          emojis:
+          - id: 494335417265684520
+            value: 1
+          - id: 494335615941476353
+            value: 10
+          - id: 494335624501919754
+            value: 100
+          - id: 494335633159094286
+            value: 1000
+
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:/tmp/db
+    username: root
+    password: root

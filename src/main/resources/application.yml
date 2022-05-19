@@ -1,0 +1,87 @@
+application:
+  version: @project.version@
+  author: @project.author@
+  http:
+    connection-timeout-msec: 10000
+    read-timeout-msec: 5000
+
+discord:
+  reconnect-attempt: 150
+  max-dispatch-thread-count: 64
+  min-dispatch-thread-count: 8
+  message:
+    cache: 200
+  support-language:
+  - ja
+  - en
+  event:
+    command-max-count: 4
+    trigger-prefix: ./
+    admin:
+      commands:
+      - stop
+      - admin-help
+      - show-dynamic-settings
+      - add-admin-user
+      - remove-admin-user
+      - show-admin-users
+      - set-notify-channel
+      - set-emoji-notify-channel
+      - set-random-gratuity-min-limit
+      - set-language
+      - remove-language
+      - show-languages
+      - set-emoji-amount
+      - remove-emoji-amount
+      - show-emoji-amounts
+      - set-linkage-bot-user
+      - remove-linkage-bot-user
+      - show-linkage-bot-users
+      - add-command-enable-channel
+      - remove-command-enable-channel
+    text:
+      color:
+        r: 255
+        g: 192
+        b: 0
+      footer-icon:
+      command:
+        gratuity:
+          default-random-min-amount: 100
+        withdraw:
+          min-amount: 1
+      enable-channel-commands:
+      - balance
+      - deposit
+      - record
+      - gratuity
+      - withdraw
+      - help
+      enable-dm-commands:
+      - balance
+      - deposit
+      - record
+      - withdraw
+      - help
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLiteDialect
+        show_sql: false
+        hbm2ddl:
+          auto: update
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  cache:
+    cache-names: settings, commands
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=3h
+    type: caffeine
